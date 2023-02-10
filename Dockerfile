@@ -18,17 +18,3 @@ ENV FLASK_DEBUG 1
 ENV FLASK_SECRETKEY your_secret_key
 
 WORKDIR /short-url/src
-
-# If you want to run (migrations + app) use this context
-#ENTRYPOINT ["/bin/bash", "-c"]
-#CMD ["/short-url/wait-for-it.sh -h db -p 5432 --strict --timeout=300 -- \
-#     flask db stamp head && \
-#     flask db migrate && \
-#     flask db upgrade && \
-#     uwsgi --ini short-url.ini"]
-
-# If you want to run only this app use this context
-ENTRYPOINT ["/bin/bash", "-c"]
-CMD ["/short-url/wait-for-it.sh -h db -p 5432 --strict --timeout=300 -- \
-     /short-url/wait-for-it.sh -h redis -p 6379 --strict --timeout=300 -- \
-     uwsgi --ini short-url.ini"]
