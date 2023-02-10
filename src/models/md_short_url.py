@@ -4,6 +4,8 @@ from database import db
 from datetime import datetime
 
 class MdShortUrl(db.Model):
+    __tablename__ = "short_url"
+
     id = db.Column(db.Integer, primary_key=True)
     redirect_url = db.Column(db.String(1024), nullable=False)
     short_url = db.Column(db.String(10), unique=True, nullable=False)
