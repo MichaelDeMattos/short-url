@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  app:
+      build: .
+      ports:
+        - '5000:5000'
+      volumes:
+        - .:/src
+
+  db:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: shorturl
+      POSTGRES_USER: shorturl
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    command: redis-server --requirepass your_password
+    ports:
+      - "6379:6379"
