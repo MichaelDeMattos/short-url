@@ -26,3 +26,7 @@ flask db upgrade
 ```bash
 pytest tests
 ```
+
+### Docs
+
+* A documentação com a collection dos endpoints esta disponível no diretório docs e pode ser aberta com o software Postman.
