@@ -52,7 +52,7 @@ class ShortUrlApi(Resource):
             valid_at = datetime.now() + timedelta(days=5)
             delta = valid_at - datetime.now()
 
-            if size not in (6, 10):
+            if size not in range(5, 11):
                 return make_response(
                     jsonify({
                         "response": "Url size is incorret!",

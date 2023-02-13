@@ -14,7 +14,7 @@ def test_fetch_short_url():
 
     # Create ShortUrl's with 6 or 10 chars
     short_urls = []
-    for size, redirect_url in [[6, "http://google.com"], [10, "http://youtube.com"]]:
+    for size, redirect_url in [[5, "http://google.com"], [6, "http://youtube.com"], [7, "http://github.com"], [8, "http://facebook.com"], [9, "http://twitter.com"], [10, "http://twitch.tv"]]:
         req = requests.post(
             f"http://{host}/api/short_url",
             data=json.dumps({
