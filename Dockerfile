@@ -17,4 +17,7 @@ COPY . /short-url/
 ENV FLASK_DEBUG 1
 ENV FLASK_SECRETKEY your_secret_key
 
+# Run App
 WORKDIR /short-url/src
+ENTRYPOINT ["/bin/bash", "-c"]
+CMD ["/short-url/wait-for-it.sh -h db -p 5432 --strict --timeout=300 -- /short-url/wait-for-it.sh -h redis -p 6379 --strict --timeout=300 -- uwsgi --ini short-url.ini"]
