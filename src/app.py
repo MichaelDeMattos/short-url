@@ -18,7 +18,7 @@ migrate = Migrate(app, db)
 
 # API's
 api = Api(app)
-api.add_resource(ShortUrlApi, "/api/short-url")
+api.add_resource(ShortUrlApi, "/api/short_url")
 
 # Blueprint's
 app.register_blueprint(bp_index)
