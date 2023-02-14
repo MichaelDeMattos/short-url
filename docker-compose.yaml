@@ -6,7 +6,7 @@ services:
       ports:
         - '5000:5000'
       volumes:
-        - .:/src
+        - .:/short-url
 
   db:
     image: postgres:14.2-alpine
