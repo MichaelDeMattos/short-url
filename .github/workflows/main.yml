@@ -51,3 +51,4 @@ jobs:
             docker compose stop
             docker compose build
             docker compose up -d
+            docker exec flask_api bash -c "cd /short-url/; pytest tests"
