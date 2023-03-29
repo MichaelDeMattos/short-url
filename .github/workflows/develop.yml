@@ -62,4 +62,4 @@ jobs:
             cd api_flask
             ln -sf /var/lib/postgresql
             export HOST=${{ secrets.SSH_HOST }}
-            docker exec flask_api bash -c "cd /short-url/; pytest tests;"
+            docker exec flask_api pytest "/short-url/tests"
