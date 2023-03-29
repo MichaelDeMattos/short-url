@@ -49,4 +49,4 @@ jobs:
             cd api_flask
             docker compose stop
             docker compose build
-            docker compose start -d
+            docker compose up -d
