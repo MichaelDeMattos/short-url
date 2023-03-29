@@ -38,8 +38,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: "."
           target: "api_flask"
-      
-      - name: Run App
+          
       - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -52,8 +51,7 @@ jobs:
             docker compose stop
             docker compose build
             docker compose up -d
-      
-      - name: Run Tests
+            
       - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
