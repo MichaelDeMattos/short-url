@@ -25,7 +25,7 @@ services:
       - /var/lib/postgresql:/var/lib/postgresql/data
 
   redis:
-    contaoner_name: redis_db
+    container_name: redis_db
     image: redis
     command: redis-server --requirepass your_password
     ports:
