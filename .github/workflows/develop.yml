@@ -39,8 +39,8 @@ jobs:
           source: "."
           target: "api_flask"
       
-      - uses: appleboy/ssh-action@master
       - name: Run App
+      - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -53,8 +53,8 @@ jobs:
             docker compose build
             docker compose up -d
       
-      - uses: appleboy/ssh-action@master
       - name: Run Tests
+      - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
