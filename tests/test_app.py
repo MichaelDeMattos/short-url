@@ -8,7 +8,7 @@ import os.path
 import requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-host = "http://165.232.154.205:5000"
+host = "http://flask_api:5000"
 
 def test_fetch_short_url():
     """ Consumer Rest API /api/short_url with Methods [GET, POST, PUT, DELETE] """
