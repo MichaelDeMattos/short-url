@@ -14,7 +14,22 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: dev
-    steps:      
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: python install
+        run: |
+         sudo apt install libpq-dev gcc -y
+         sudo apt install python3-venv
+         python -m venv --copies venv
+         source venv/bin/activate
+         pip install setuptools
+         pip install -r requirements.txt
+      
       - uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
