@@ -40,6 +40,7 @@ jobs:
           target: "api_flask"
       
       - uses: appleboy/ssh-action@master
+      - name: Run App
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -53,6 +54,7 @@ jobs:
             docker compose up -d
       
       - uses: appleboy/ssh-action@master
+      - name: Run Tests
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -61,4 +63,5 @@ jobs:
           script: |
             cd api_flask
             ln -sf /var/lib/postgresql
+            export HOST=${{ secrets.SSH_HOST }}
             docker exec flask_api bash -c "cd /short-url/; pytest tests;"
