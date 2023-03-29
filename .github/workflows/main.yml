@@ -25,8 +25,8 @@ jobs:
         run: |
          sudo apt install libpq-dev gcc -y
          sudo apt install python3-venv
-         python -m venv --copies antenv
-         source antenv/bin/activate
+         python -m venv --copies venv
+         source venv/bin/activate
          pip install setuptools
          pip install -r requirements.txt
        
