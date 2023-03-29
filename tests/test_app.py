@@ -8,7 +8,8 @@ import os.path
 import requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-host = f"{os.getenv('HOST')}:5000"
+with open(os.path.join('/', 'tmp', 'host.txt'), 'r') as host_file:
+    host = f"{host_file.read()}:5000".replace('\n', '')
 
 def test_fetch_short_url():
     """ Consumer Rest API /api/short_url with Methods [GET, POST, PUT, DELETE] """
