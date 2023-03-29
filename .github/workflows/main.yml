@@ -47,7 +47,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd api_flask
-            ln -s /var/lib/postgresql
+            ln -sf /var/lib/postgresql
             docker compose stop
             docker compose build
             docker compose up -d
