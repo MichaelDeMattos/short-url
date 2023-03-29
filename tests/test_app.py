@@ -8,9 +8,6 @@ import os.path
 import requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-with open(os.path.join('/', 'tmp', 'host.txt'), 'r') as host_file:
-    host = f"{host_file.read()}:5000".replace('\n', '')
-
 host = "165.232.154.205:5000"
 
 def test_fetch_short_url():
