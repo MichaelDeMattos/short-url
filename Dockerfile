@@ -17,6 +17,8 @@ COPY . /short-url/
 ENV FLASK_DEBUG 1
 ENV FLASK_SECRETKEY your_secret_key
 
+RUN export HOST_TEST=http://165.232.154.205:5000
+
 # Run App
 WORKDIR /short-url/src
 ENTRYPOINT ["/bin/bash", "-c"]
