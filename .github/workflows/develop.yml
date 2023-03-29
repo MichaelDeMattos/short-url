@@ -14,10 +14,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: dev
-    steps:
-      - uses: actions/checkout@master
-      - name: Send files to server
-      
+    steps:      
       - uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
