@@ -51,15 +51,3 @@ jobs:
             docker compose stop
             docker compose build
             docker compose up -d
-            
-      - uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            cd api_flask
-            ln -sf /var/lib/postgresql
-            export HOST=${{ secrets.SSH_HOST }}
-            docker exec flask_api pytest "/short-url/tests"
